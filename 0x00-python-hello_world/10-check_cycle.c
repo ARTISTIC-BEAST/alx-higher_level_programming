@@ -15,7 +15,7 @@ int check_cycle(listint_t *list)
 		slow = (*slow).next;
 		if (slow == normal)
 		{
-			return (1);
+		return (1);
 		}
 	}
 	return (0);
