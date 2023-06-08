@@ -31,7 +31,7 @@ int check_cycle(listint_t *list)
 					p2 = p2->next;
 				}
 			if (p2->next == list)
-			break;
+				break;
 
 				list = list->next;
 			}
