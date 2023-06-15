@@ -1,6 +1,7 @@
-ass module"""
+#!/usr/bin/python3
+"""Defines an empty class BaseGeometry."""
 
 
 class BaseGeometry:
-        """Empty basegeometry class"""
-            pass
+    """Represent base geometry."""
+    pass
