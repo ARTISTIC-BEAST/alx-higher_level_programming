@@ -1,10 +1,8 @@
-lename open module"""
+#!/usr/bin/python3
+"""Defines a text file-reading function."""
 
 
 def read_file(filename=""):
-        """read file function
-            Args:
-                        filename (str, optional): [description]. Defaults to "".
-                            """
-                                with open(filename, "r", encoding='utf-8') as f:
-                                        print(f.read(), end="")
+    """Print the contents of a UTF8 text file to stdout."""
+    with open(filename, encoding="utf-8") as f:
+        print(f.read(), end="")
