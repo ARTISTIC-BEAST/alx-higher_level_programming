@@ -1,17 +1,18 @@
-ass module"""
+#!/usr/bin/python3
+"""Empty class module"""
 
 
 class BaseGeometry:
-        """Empty basegeometry class"""
+    """Empty basegeometry class"""
 
-            def __init__(self):
-                    """Init function"""
-                            pass
+    def __init__(self):
+        """Init function"""
+        pass
 
-                                def area(self):
-                                        """area function
-                                                Raises:
-                                                                Exception: area not implemented
-                                                                        """
-                                                                                raise Exception("area() is not implemented")
+    def area(self):
+        """area function
+        Raises:
+            Exception: area not implemented
+        """
+        raise Exception("area() is not implemented")
 
