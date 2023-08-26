@@ -1,28 +1,18 @@
 #!/usr/bin/python3
-"""Conn module"""
+"""  lists all states from the database hbtn_0e_0_usa """
 import MySQLdb
-from sys import argv
+import sys
 
-if __name__ == '__main__':
-    myU = argv[1]
-    myP = argv[2]
-    myDB = argv[3]
-    sName = argv[4]
-    myH = "localhost"
-    db = MySQLdb.connect(host=myH, port=3306, user=myU, passwd=myP, db=myDB)
+
+if __name__ == "__main__":
+    db = MySQLdb.connect(host="localhost", user=sys.argv[1],
+                         passwd=sys.argv[2], db=sys.argv[3], port=3306)
     cur = db.cursor()
-    myQ = "SELECT c.name FROM cities AS c, states AS s "
-    myQ += "WHERE s.name = %s AND s.id = c.state_id ORDER BY c.id;"
-    cur.execute(myQ, (sName,))
-    result = cur.fetchall()
-    if (len(result) is not 0):
-        for row in result:
-            for col in row:
-                if (result.index(row) is len(result) - 1):
-                    print(col)
-                else:
-                    print(col, end=', ')
-    else:
-        print()
+    cur.execute("""SELECT cities.name FROM
+                cities INNER JOIN states ON states.id=cities.state_id
+                WHERE states.name=%s""", (sys.argv[4],))
+    rows = cur.fetchall()
+    tmp = list(row[0] for row in rows)
+    print(*tmp, sep=", ")
     cur.close()
     db.close()
